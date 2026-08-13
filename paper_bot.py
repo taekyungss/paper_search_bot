@@ -1,6 +1,6 @@
 """
 디코봇 - 키워드별 최신 Hugging Face Papers 검색 & Discord 알림
-매주 월요일 아침 10시에 GitHub Actions로 실행됨
+매일 아침 10시에 GitHub Actions로 실행됨
 """
 
 import os
@@ -13,7 +13,7 @@ KEYWORDS = [
     "GUI grounding",
     "GUI agent"
 ]
-PAPERS_PER_KEYWORD = 3
+PAPERS_PER_KEYWORD = 1
 
 HF_SEARCH_API = "https://huggingface.co/api/papers/search"
 
@@ -81,7 +81,7 @@ def send_to_discord(embeds):
     today = datetime.now().strftime("%Y-%m-%d")
     # 디스코드는 embed 하나당 하나의 메시지로 최대 10개까지 첨부 가능
     payload = {
-        "content": f"📚 **주간 논문 알림 ({today})**",
+        "content": f"📚 **오늘의 논문 알림 ({today})**",
         "embeds": embeds[:10],
     }
     resp = requests.post(DISCORD_WEBHOOK_URL, json=payload, timeout=20)
