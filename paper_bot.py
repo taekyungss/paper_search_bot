@@ -14,8 +14,6 @@ KEYWORDS = [
     "GUI agent"
 ]
 PAPERS_PER_KEYWORD = 3
-# 검색 결과 중 최근 며칠 이내 논문만 볼지 (None이면 제한 없음, 그냥 최신순 상위 N개)
-RECENT_DAYS_ONLY = 30  # 예: 30 으로 하면 최근 30일 이내 논문만
 
 HF_SEARCH_API = "https://huggingface.co/api/papers/search"
 
@@ -46,17 +44,8 @@ def search_hf_papers(keyword: str, max_results: int = 3):
             }
         )
 
-    # 발행일 최신순 정렬
+    # 발행일 최신순 정렬 후 상위 N개 (최신 논문이 부족하면 오래된 논문으로 채워짐)
     papers.sort(key=lambda x: x["published_dt"], reverse=True)
-
-    if RECENT_DAYS_ONLY:
-        cutoff = datetime.utcnow().timestamp() - RECENT_DAYS_ONLY * 86400
-        papers = [
-            p
-            for p in papers
-            if datetime.fromisoformat(p["published_dt"].replace("Z", "+00:00")).timestamp()
-            >= cutoff
-        ]
 
     return papers[:max_results]
 
