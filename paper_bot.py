@@ -11,6 +11,7 @@ from datetime import datetime
 KEYWORDS = [
     "VLM OCR",
     "GUI grounding",
+    "GUI agent"
 ]
 PAPERS_PER_KEYWORD = 3
 # 검색 결과 중 최근 며칠 이내 논문만 볼지 (None이면 제한 없음, 그냥 최신순 상위 N개)
@@ -39,8 +40,9 @@ def search_hf_papers(keyword: str, max_results: int = 3):
                 "link": f"https://huggingface.co/papers/{p.get('id')}",
                 "published": published_at[:10],
                 "published_dt": published_at,
-                "summary": (p.get("summary") or "").strip().replace("\n", " ")[:200],
+                "summary": (p.get("summary") or "").strip().replace("\n", " "),
                 "upvotes": p.get("upvotes", 0),
+                "github": p.get("githubRepo"),
             }
         )
 
@@ -63,22 +65,23 @@ def build_embeds():
     embeds = []
     for kw in KEYWORDS:
         papers = search_hf_papers(kw, PAPERS_PER_KEYWORD)
-        if not papers:
-            continue
-        description_lines = []
         for p in papers:
-            description_lines.append(
-                f"**[{p['title']}]({p['link']})**\n"
-                f"📅 {p['published']}  ·  ⬆️ {p['upvotes']}\n"
-                f"{p['summary']}\n"
+            fields = [
+                {"name": "📅 발행일", "value": p["published"], "inline": True},
+                {"name": "⬆️ Upvotes", "value": str(p["upvotes"]), "inline": True},
+            ]
+            if p["github"]:
+                fields.append({"name": "💻 GitHub", "value": p["github"], "inline": False})
+            embeds.append(
+                {
+                    "title": p["title"][:256],
+                    "url": p["link"],
+                    "description": p["summary"][:4096],
+                    "color": 3447003,
+                    "fields": fields,
+                    "footer": {"text": f"🔍 {kw}"},
+                }
             )
-        embeds.append(
-            {
-                "title": f"🔍 {kw}",
-                "description": "\n".join(description_lines)[:4096],
-                "color": 3447003,
-            }
-        )
     return embeds
 
 
