@@ -94,7 +94,7 @@ def send_paper(kw: str, p: dict):
     resp = requests.post(
         DISCORD_WEBHOOK_URL,
         params={"wait": "true"},
-        json={"embeds": [embed_for(kw, p)]},
+        json={"username": f"📄 {kw}", "embeds": [embed_for(kw, p)]},
         timeout=20,
     )
     resp.raise_for_status()
