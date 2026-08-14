@@ -2,7 +2,7 @@
 디코봇 - 키워드별 최신 Hugging Face Papers 검색 & Discord 알림
 매일 아침 10시에 GitHub Actions로 실행됨
 논문마다 메시지를 따로 보내고, message_id를 data/paper_log.json에 기록해서
-reaction_checker.py가 나중에 ⭐ 리액션을 개별 논문 단위로 추적할 수 있게 한다.
+reaction_checker.py가 나중에 ⭐ 리액션을 개별 논문 단위로 추적해 리뷰 노트를 만들 수 있게 한다.
 """
 
 import json
@@ -82,7 +82,7 @@ def embed_for(kw: str, p: dict):
         "description": p["summary"][:4096],
         "color": 3447003,
         "fields": fields,
-        "footer": {"text": f"🔍 {kw}  ·  마음에 들면 {STAR_EMOJI} 를 눌러 Zotero에 저장하세요"},
+        "footer": {"text": f"🔍 {kw}  ·  마음에 들면 {STAR_EMOJI} 를 눌러 리뷰 노트에 저장하세요"},
     }
 
 
@@ -137,7 +137,7 @@ def main():
                 "published": p["published"],
                 "summary": p["summary"],
                 "github": p["github"],
-                "zotero_synced": False,
+                "review_saved": False,
             }
         )
 
