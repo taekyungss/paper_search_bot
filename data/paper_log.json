@@ -1661,5 +1661,63 @@
     "summary": "GUI world models are increasingly evaluated as one-step next-screen predictors, yet their intended use is often as multi-step environments for GUI agents. This mismatch leaves a key requirement under-tested: generated states must remain contextually consistent when they are repeatedly reused for future interaction. We introduce GUI-CC, a benchmark that evaluates contextual consistency of GUI world models as agent environments rather than isolated next-screen predictors. GUI-CC contains two complementary tracks: an offline reference-action track that rolls models along real mobile GUI trajectories, and an online agent-loop track that lets fixed probing agents interact with model-generated UIs. We construct 500 offline trajectory tasks from GUIOdyssey and 200 emulator-verified online tasks across 30 mobile apps. GUI-CC evaluates transition fidelity, transition plausibility, contextual consistency, and task progress. Experiments show that plausible single-step generation does not guarantee reliable environment simulation: current models often produce usable-looking screens while failing to preserve task-relevant context or support executable multi-step rollouts.",
     "github": "https://github.com/Fu-Fu-Fu-Fu/GUI-CC",
     "review_saved": false
+  },
+  {
+    "message_id": "1545303325048836168",
+    "channel_id": "1537332348238962812",
+    "date": "2026-09-04",
+    "keyword": "VLM OCR",
+    "title": "OCR-MetaReasoning Benchmark: Evaluating the Meta-Reasoning Ability of MLLMs in Text-Rich Image Understanding",
+    "authors": [
+      "Gengxu Li",
+      "Yuan Wu",
+      "Yi Chang"
+    ],
+    "link": "https://huggingface.co/papers/2608.30678",
+    "arxiv_id": "2608.30678",
+    "published": "2026-08-31",
+    "summary": "Text-rich image understanding requires multimodal large language models (MLLMs) to organize OCR (Optical Character Recognition)-grounded evidence across words, layout, fields, charts, and visual correspondences. Existing evaluations often conflate extraction with reasoning and rarely test whether models follow the required reasoning direction: applying visible rules, abstracting hidden regularities, or recovering missing premises. We introduce OCR-MetaReasoning, a controlled single-image benchmark that treats deduction, induction, and abduction as distinct directions and separates final-answer correctness from reasoning-process compliance. The benchmark contains 1,500 verified samples in a balanced \\(3\\times5\\) taxonomy crossing three reasoning types with five OCR-object categories, along with reference reasoning steps, automatic answer scoring, the Meta-Reasoning Macro Score (MRMS), and the Reasoning Process Compliance Score (RPCS). Experiments with representative closed-source and open-source MLLMs show that OCR-grounded meta-reasoning remains far from saturated: models struggle with visible-rule application and layout-sensitive inference, while process-compliant rationales can accompany incorrect final answers under exact-match evaluation. The code is available at https://github.com/gengxuli/OCR-MetaReasoning.",
+    "github": null,
+    "review_saved": false
+  },
+  {
+    "message_id": "1545303328756473957",
+    "channel_id": "1537332348238962812",
+    "date": "2026-09-04",
+    "keyword": "GUI grounding",
+    "title": "GUI-Primitives: Diagnosing Spatial Reasoning Failures in Vision-Language GUI Grounding",
+    "authors": [
+      "Md Abrar Jahin",
+      "Md Rizwan Parvez"
+    ],
+    "link": "https://huggingface.co/papers/2608.21832",
+    "arxiv_id": "2608.21832",
+    "published": "2026-08-22",
+    "summary": "Computer-use agents ground natural-language instructions in screenshots to locate interface elements, yet existing benchmarks do not isolate whether models bind relational language to the correct element. We introduce GUI-Primitives, a 994-item benchmark of contrastive instruction pairs over seven spatial relations in graphical user interfaces (left/right, above/below, containment, alignment, proximity, list ordinal, occlusion). Each pair holds the screenshot and anchor fixed while changing the relation expression, so the correct target moves between two designated candidates. Five annotators validate a 196-item subset (κ= 0.94 well-formedness; κ= 0.79 target selection). Nineteen vision-language models reach at most 32% strict point-in-box accuracy. Because models emit unconstrained coordinates, we classify each prediction by the candidate region it falls within. Predictions fall outside both candidates on 60-92% of items. Conditional on falling within a candidate region, target selection reaches 0.82-0.90 for horizontal position, vertical position, proximity, and list ordinal, but does not differ significantly from 0.50 for containment and occlusion: most failures reflect candidate localization rather than relation understanding. Across ten models, benchmark accuracy correlates with ScreenSpot-Pro accuracy (Spearman ρ= +0.74), an exploratory association at this sample size. Marking the two designated candidates raises selection accuracy by 35--57 percentage points, an oracle diagnostic that supplies the candidate set rather than a deployable method. We release the benchmark, predictions, and code.",
+    "github": "https://github.com/Abrar2652/gui-primitives",
+    "review_saved": false
+  },
+  {
+    "message_id": "1545303331344355369",
+    "channel_id": "1537332348238962812",
+    "date": "2026-09-04",
+    "keyword": "GUI agent",
+    "title": "GUI-CC: Benchmarking Contextual Consistency of GUI World Models as Agent Environments",
+    "authors": [
+      "Lin Fu",
+      "Zheyuan Yang",
+      "Tianhui Zhang",
+      "Jinbiao Wei",
+      "Guo Gan",
+      "Boxu Liu",
+      "Yilun Zhao",
+      "Yu Rong"
+    ],
+    "link": "https://huggingface.co/papers/2609.00048",
+    "arxiv_id": "2609.00048",
+    "published": "2026-08-30",
+    "summary": "GUI world models are increasingly evaluated as one-step next-screen predictors, yet their intended use is often as multi-step environments for GUI agents. This mismatch leaves a key requirement under-tested: generated states must remain contextually consistent when they are repeatedly reused for future interaction. We introduce GUI-CC, a benchmark that evaluates contextual consistency of GUI world models as agent environments rather than isolated next-screen predictors. GUI-CC contains two complementary tracks: an offline reference-action track that rolls models along real mobile GUI trajectories, and an online agent-loop track that lets fixed probing agents interact with model-generated UIs. We construct 500 offline trajectory tasks from GUIOdyssey and 200 emulator-verified online tasks across 30 mobile apps. GUI-CC evaluates transition fidelity, transition plausibility, contextual consistency, and task progress. Experiments show that plausible single-step generation does not guarantee reliable environment simulation: current models often produce usable-looking screens while failing to preserve task-relevant context or support executable multi-step rollouts.",
+    "github": "https://github.com/Fu-Fu-Fu-Fu/GUI-CC",
+    "review_saved": false
   }
 ]
