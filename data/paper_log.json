@@ -1917,5 +1917,75 @@
     "summary": "GUI world models are increasingly evaluated as one-step next-screen predictors, yet their intended use is often as multi-step environments for GUI agents. This mismatch leaves a key requirement under-tested: generated states must remain contextually consistent when they are repeatedly reused for future interaction. We introduce GUI-CC, a benchmark that evaluates contextual consistency of GUI world models as agent environments rather than isolated next-screen predictors. GUI-CC contains two complementary tracks: an offline reference-action track that rolls models along real mobile GUI trajectories, and an online agent-loop track that lets fixed probing agents interact with model-generated UIs. We construct 500 offline trajectory tasks from GUIOdyssey and 200 emulator-verified online tasks across 30 mobile apps. GUI-CC evaluates transition fidelity, transition plausibility, contextual consistency, and task progress. Experiments show that plausible single-step generation does not guarantee reliable environment simulation: current models often produce usable-looking screens while failing to preserve task-relevant context or support executable multi-step rollouts.",
     "github": "https://github.com/Fu-Fu-Fu-Fu/GUI-CC",
     "review_saved": false
+  },
+  {
+    "message_id": "1546755326118985739",
+    "channel_id": "1537332348238962812",
+    "date": "2026-09-08",
+    "keyword": "VLM OCR",
+    "title": "OCR-MetaReasoning Benchmark: Evaluating the Meta-Reasoning Ability of MLLMs in Text-Rich Image Understanding",
+    "authors": [
+      "Gengxu Li",
+      "Yuan Wu",
+      "Yi Chang"
+    ],
+    "link": "https://huggingface.co/papers/2608.30678",
+    "arxiv_id": "2608.30678",
+    "published": "2026-08-31",
+    "summary": "Text-rich image understanding requires multimodal large language models (MLLMs) to organize OCR (Optical Character Recognition)-grounded evidence across words, layout, fields, charts, and visual correspondences. Existing evaluations often conflate extraction with reasoning and rarely test whether models follow the required reasoning direction: applying visible rules, abstracting hidden regularities, or recovering missing premises. We introduce OCR-MetaReasoning, a controlled single-image benchmark that treats deduction, induction, and abduction as distinct directions and separates final-answer correctness from reasoning-process compliance. The benchmark contains 1,500 verified samples in a balanced \\(3\\times5\\) taxonomy crossing three reasoning types with five OCR-object categories, along with reference reasoning steps, automatic answer scoring, the Meta-Reasoning Macro Score (MRMS), and the Reasoning Process Compliance Score (RPCS). Experiments with representative closed-source and open-source MLLMs show that OCR-grounded meta-reasoning remains far from saturated: models struggle with visible-rule application and layout-sensitive inference, while process-compliant rationales can accompany incorrect final answers under exact-match evaluation. The code is available at https://github.com/gengxuli/OCR-MetaReasoning.",
+    "github": null,
+    "review_saved": false
+  },
+  {
+    "message_id": "1546755328190844929",
+    "channel_id": "1537332348238962812",
+    "date": "2026-09-08",
+    "keyword": "GUI grounding",
+    "title": "Tail-Likelihood Reinforcement Learning",
+    "authors": [
+      "Shrinivas Ramasubramanian",
+      "Daman Arora",
+      "Fahim Tajwar",
+      "Guanning Zeng",
+      "Qingyang Wu",
+      "Zhongzhu Zhou",
+      "Chenfeng Xu",
+      "Haiwen Feng",
+      "Yuda Song",
+      "Aarti Singh",
+      "Ruslan Salakhutdinov",
+      "J. Andrew Bagnell",
+      "Jeff Schneider",
+      "Andrea Zanette"
+    ],
+    "link": "https://huggingface.co/papers/2609.02987",
+    "arxiv_id": "2609.02987",
+    "published": "2026-09-02",
+    "summary": "Reinforcement learning typically optimizes average reward. For generative policies, the average can hide an important distinction: two policies can achieve the same mean reward while having very different chances of producing a rare but high-reward rollout. This matters as sampling increases during training and inference, since its benefit depends on retaining probability mass on high-reward outcomes. We propose to optimize this coverage directly. Rather than considering only expected reward, we consider all of its upper tails: for each reward threshold, how likely is the policy to exceed it? This turns a continuous reward into a family of binary success events. We introduce Tail-Likelihood Reinforcement Learning (TailRL), which maximizes the log-probability of exceeding a randomly chosen reward threshold. Its gradient gives more weight to rare, high-reward rollouts and can be interpreted as a mixture of Best-of-(k) gradients. TailRL requires only a simple modification to the advantage function, making it compatible with existing reinforcement learning pipelines. Across object localization, maze navigation, GUI grounding, and code optimization, TailRL leverages rare high-reward training samples to avoid suboptimal solutions and yields models that benefit more from additional samples at inference time.",
+    "github": null,
+    "review_saved": false
+  },
+  {
+    "message_id": "1546755329159729273",
+    "channel_id": "1537332348238962812",
+    "date": "2026-09-08",
+    "keyword": "GUI agent",
+    "title": "GUI-CC: Benchmarking Contextual Consistency of GUI World Models as Agent Environments",
+    "authors": [
+      "Lin Fu",
+      "Zheyuan Yang",
+      "Tianhui Zhang",
+      "Jinbiao Wei",
+      "Guo Gan",
+      "Boxu Liu",
+      "Yilun Zhao",
+      "Yu Rong"
+    ],
+    "link": "https://huggingface.co/papers/2609.00048",
+    "arxiv_id": "2609.00048",
+    "published": "2026-08-30",
+    "summary": "GUI world models are increasingly evaluated as one-step next-screen predictors, yet their intended use is often as multi-step environments for GUI agents. This mismatch leaves a key requirement under-tested: generated states must remain contextually consistent when they are repeatedly reused for future interaction. We introduce GUI-CC, a benchmark that evaluates contextual consistency of GUI world models as agent environments rather than isolated next-screen predictors. GUI-CC contains two complementary tracks: an offline reference-action track that rolls models along real mobile GUI trajectories, and an online agent-loop track that lets fixed probing agents interact with model-generated UIs. We construct 500 offline trajectory tasks from GUIOdyssey and 200 emulator-verified online tasks across 30 mobile apps. GUI-CC evaluates transition fidelity, transition plausibility, contextual consistency, and task progress. Experiments show that plausible single-step generation does not guarantee reliable environment simulation: current models often produce usable-looking screens while failing to preserve task-relevant context or support executable multi-step rollouts.",
+    "github": "https://github.com/Fu-Fu-Fu-Fu/GUI-CC",
+    "review_saved": false
   }
 ]
