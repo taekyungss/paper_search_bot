@@ -2197,5 +2197,75 @@
     "summary": "GUI world models are increasingly evaluated as one-step next-screen predictors, yet their intended use is often as multi-step environments for GUI agents. This mismatch leaves a key requirement under-tested: generated states must remain contextually consistent when they are repeatedly reused for future interaction. We introduce GUI-CC, a benchmark that evaluates contextual consistency of GUI world models as agent environments rather than isolated next-screen predictors. GUI-CC contains two complementary tracks: an offline reference-action track that rolls models along real mobile GUI trajectories, and an online agent-loop track that lets fixed probing agents interact with model-generated UIs. We construct 500 offline trajectory tasks from GUIOdyssey and 200 emulator-verified online tasks across 30 mobile apps. GUI-CC evaluates transition fidelity, transition plausibility, contextual consistency, and task progress. Experiments show that plausible single-step generation does not guarantee reliable environment simulation: current models often produce usable-looking screens while failing to preserve task-relevant context or support executable multi-step rollouts.",
     "github": "https://github.com/Fu-Fu-Fu-Fu/GUI-CC",
     "review_saved": false
+  },
+  {
+    "message_id": "1548201652748681247",
+    "channel_id": "1537332348238962812",
+    "date": "2026-09-12",
+    "keyword": "VLM OCR",
+    "title": "VDiff-Bench: A Challenging Benchmark for Fine-Grained Image Difference Identification",
+    "authors": [
+      "Yixin Wan",
+      "Tianle Zheng",
+      "Kai-Wei Chang"
+    ],
+    "link": "https://huggingface.co/papers/2609.06245",
+    "arxiv_id": "2609.06245",
+    "published": "2026-09-05",
+    "summary": "Multimodal Large Language Models (MLLMs) perform strongly on general visual understanding tasks such as visual question answering, yet they often struggle with a basic comparative skill: identifying what has changed between two similar images. We introduce VDiff-Bench, a challenging multiple-choice benchmark for fine-grained Image Difference Identification. VDiff-Bench contains 1,756 four-way questions over image pairs and covers 10 change categories: position, motion, regional image color, overall image color, appearance/disappearance, noise/resolution, texture, substitution/size, OCR/text, and illumination. Each question corresponds to two image inputs with 4 choices: the true difference, two hard negative descriptions, and a \"no difference\" distractor. To make the task challenging, we specifically curate ground-truth-conditioned negatives that require models to distinguish the actual change from nearby semantic alternatives. Experiments with 11 state-of-the-art open- and closed-source MLLMs show that fine-grained visual comparison remains brittle: models exhibit uneven performance across sources and change categories, with persistent failures on subtle low-level changes like noises and textures. For instance, three 7-8B-scale open-source MLLMs score 52.5-70.6% on semantic changes but only 8.7-33.3% on low-level changes like noise and texture, falsely assuming no changes between two image inputs. Surprisingly, despite strong performance of other closed-source commercial models, Grok 4.3 demonstrate remarkable performance drop on identifying noise and texture differences between images, falling significantly behind large open-source models like Kimi K2.5 and K3. Overall, VDiff-Bench provides a targeted diagnostic for evaluating comparative visual understanding in MLLMs, exposing failures that are not captured by standard single-image vision-language tasks.",
+    "github": null,
+    "review_saved": false
+  },
+  {
+    "message_id": "1548201654900363316",
+    "channel_id": "1537332348238962812",
+    "date": "2026-09-12",
+    "keyword": "GUI grounding",
+    "title": "Tail-Likelihood Reinforcement Learning",
+    "authors": [
+      "Shrinivas Ramasubramanian",
+      "Daman Arora",
+      "Fahim Tajwar",
+      "Guanning Zeng",
+      "Qingyang Wu",
+      "Zhongzhu Zhou",
+      "Chenfeng Xu",
+      "Haiwen Feng",
+      "Yuda Song",
+      "Aarti Singh",
+      "Ruslan Salakhutdinov",
+      "J. Andrew Bagnell",
+      "Jeff Schneider",
+      "Andrea Zanette"
+    ],
+    "link": "https://huggingface.co/papers/2609.02987",
+    "arxiv_id": "2609.02987",
+    "published": "2026-09-02",
+    "summary": "Reinforcement learning typically optimizes average reward. For generative policies, the average can hide an important distinction: two policies can achieve the same mean reward while having very different chances of producing a rare but high-reward rollout. This matters as sampling increases during training and inference, since its benefit depends on retaining probability mass on high-reward outcomes. We propose to optimize this coverage directly. Rather than considering only expected reward, we consider all of its upper tails: for each reward threshold, how likely is the policy to exceed it? This turns a continuous reward into a family of binary success events. We introduce Tail-Likelihood Reinforcement Learning (TailRL), which maximizes the log-probability of exceeding a randomly chosen reward threshold. Its gradient gives more weight to rare, high-reward rollouts and can be interpreted as a mixture of Best-of-(k) gradients. TailRL requires only a simple modification to the advantage function, making it compatible with existing reinforcement learning pipelines. Across object localization, maze navigation, GUI grounding, and code optimization, TailRL leverages rare high-reward training samples to avoid suboptimal solutions and yields models that benefit more from additional samples at inference time.",
+    "github": null,
+    "review_saved": false
+  },
+  {
+    "message_id": "1548201659275149313",
+    "channel_id": "1537332348238962812",
+    "date": "2026-09-12",
+    "keyword": "GUI agent",
+    "title": "GUI-CC: Benchmarking Contextual Consistency of GUI World Models as Agent Environments",
+    "authors": [
+      "Lin Fu",
+      "Zheyuan Yang",
+      "Tianhui Zhang",
+      "Jinbiao Wei",
+      "Guo Gan",
+      "Boxu Liu",
+      "Yilun Zhao",
+      "Yu Rong"
+    ],
+    "link": "https://huggingface.co/papers/2609.00048",
+    "arxiv_id": "2609.00048",
+    "published": "2026-08-30",
+    "summary": "GUI world models are increasingly evaluated as one-step next-screen predictors, yet their intended use is often as multi-step environments for GUI agents. This mismatch leaves a key requirement under-tested: generated states must remain contextually consistent when they are repeatedly reused for future interaction. We introduce GUI-CC, a benchmark that evaluates contextual consistency of GUI world models as agent environments rather than isolated next-screen predictors. GUI-CC contains two complementary tracks: an offline reference-action track that rolls models along real mobile GUI trajectories, and an online agent-loop track that lets fixed probing agents interact with model-generated UIs. We construct 500 offline trajectory tasks from GUIOdyssey and 200 emulator-verified online tasks across 30 mobile apps. GUI-CC evaluates transition fidelity, transition plausibility, contextual consistency, and task progress. Experiments show that plausible single-step generation does not guarantee reliable environment simulation: current models often produce usable-looking screens while failing to preserve task-relevant context or support executable multi-step rollouts.",
+    "github": "https://github.com/Fu-Fu-Fu-Fu/GUI-CC",
+    "review_saved": false
   }
 ]
