@@ -3226,5 +3226,77 @@
     "summary": "GUI agents execute long-horizon tasks on dynamic graphical user interfaces, where pop-ups, delayed loads, and relocated widgets routinely invalidate plans fixed before execution. Recent agent-skill frameworks encapsulate reusable procedural knowledge to mitigate this, yet existing skill designs are largely developed without targeting GUI execution dynamics and treat skills as static artifacts produced before deployment rather than living procedural knowledge that improves through it. We argue that what GUI agents need is not better static skills, but skills that can be revised from execution feedback at deployment time, without additional training. We propose EvoSkill-GUI, a training-free framework in which each skill is a structured multi-file package containing retrieval metadata, executable plans, backup localization, failure-recovery rules, accessibility utilities, and failure cases. EvoSkill-GUI operates through a \\emph{reflect-revise-reuse} loop: the executor performs instant in-rollout revisions, an isolated critic diagnoses failed trajectories under strict information isolation, and the executor edits specific skill files through a restricted tool interface. Across MobileWorld, AndroidWorld, and OSWorld, three mainstream GUI benchmarks spanning mobile and desktop platforms, EvoSkill-GUI consistently improves multiple base models without any training, with maximum gains of +16.2%, +6.0%, and +10.5% respectively, and evolved skill libraries continue to benefit related tasks rather than being rebuilt from scratch. Our code is available at https://github.com/ZJU-REAL/EvoSkill-GUI.",
     "github": "https://github.com/ZJU-REAL/EvoSkill-GUI",
     "review_saved": false
+  },
+  {
+    "message_id": "1552918413796708414",
+    "channel_id": "1537332348238962812",
+    "date": "2026-09-25",
+    "keyword": "VLM OCR",
+    "title": "OCR-MetaReasoning Benchmark: Evaluating the Meta-Reasoning Ability of MLLMs in Text-Rich Image Understanding",
+    "authors": [
+      "Gengxu Li",
+      "Yuan Wu",
+      "Yi Chang"
+    ],
+    "link": "https://huggingface.co/papers/2608.30678",
+    "arxiv_id": "2608.30678",
+    "published": "2026-08-31",
+    "summary": "Text-rich image understanding requires multimodal large language models (MLLMs) to organize OCR (Optical Character Recognition)-grounded evidence across words, layout, fields, charts, and visual correspondences. Existing evaluations often conflate extraction with reasoning and rarely test whether models follow the required reasoning direction: applying visible rules, abstracting hidden regularities, or recovering missing premises. We introduce OCR-MetaReasoning, a controlled single-image benchmark that treats deduction, induction, and abduction as distinct directions and separates final-answer correctness from reasoning-process compliance. The benchmark contains 1,500 verified samples in a balanced \\(3\\times5\\) taxonomy crossing three reasoning types with five OCR-object categories, along with reference reasoning steps, automatic answer scoring, the Meta-Reasoning Macro Score (MRMS), and the Reasoning Process Compliance Score (RPCS). Experiments with representative closed-source and open-source MLLMs show that OCR-grounded meta-reasoning remains far from saturated: models struggle with visible-rule application and layout-sensitive inference, while process-compliant rationales can accompany incorrect final answers under exact-match evaluation. The code is available at https://github.com/gengxuli/OCR-MetaReasoning.",
+    "github": "https://github.com/gengxuli/OCR-MetaReasoning",
+    "review_saved": false
+  },
+  {
+    "message_id": "1552918419685376045",
+    "channel_id": "1537332348238962812",
+    "date": "2026-09-25",
+    "keyword": "GUI grounding",
+    "title": "Tail-Likelihood Reinforcement Learning",
+    "authors": [
+      "Shrinivas Ramasubramanian",
+      "Daman Arora",
+      "Fahim Tajwar",
+      "Guanning Zeng",
+      "Qingyang Wu",
+      "Zhongzhu Zhou",
+      "Chenfeng Xu",
+      "Haiwen Feng",
+      "Yuda Song",
+      "Aarti Singh",
+      "Ruslan Salakhutdinov",
+      "J. Andrew Bagnell",
+      "Jeff Schneider",
+      "Andrea Zanette"
+    ],
+    "link": "https://huggingface.co/papers/2609.02987",
+    "arxiv_id": "2609.02987",
+    "published": "2026-09-02",
+    "summary": "Reinforcement learning typically optimizes average reward. For generative policies, the average can hide an important distinction: two policies can achieve the same mean reward while having very different chances of producing a rare but high-reward rollout. This matters as sampling increases during training and inference, since its benefit depends on retaining probability mass on high-reward outcomes. We propose to optimize this coverage directly. Rather than considering only expected reward, we consider all of its upper tails: for each reward threshold, how likely is the policy to exceed it? This turns a continuous reward into a family of binary success events. We introduce Tail-Likelihood Reinforcement Learning (TailRL), which maximizes the log-probability of exceeding a randomly chosen reward threshold. Its gradient gives more weight to rare, high-reward rollouts and can be interpreted as a mixture of Best-of-(k) gradients. TailRL requires only a simple modification to the advantage function, making it compatible with existing reinforcement learning pipelines. Across object localization, maze navigation, GUI grounding, and code optimization, TailRL leverages rare high-reward training samples to avoid suboptimal solutions and yields models that benefit more from additional samples at inference time.",
+    "github": null,
+    "review_saved": false
+  },
+  {
+    "message_id": "1552918421077758045",
+    "channel_id": "1537332348238962812",
+    "date": "2026-09-25",
+    "keyword": "GUI agent",
+    "title": "Reflect, Revise, Reuse: Training-Free Skill Evolution for GUI Agents",
+    "authors": [
+      "Bofan Chen",
+      "Boxuan Zhang",
+      "Fei Tang",
+      "Zhengxi Lu",
+      "Yong Du",
+      "Tongbo Chen",
+      "Weiming Lu",
+      "Jun Xiao",
+      "Yueting Zhuang",
+      "Yongliang Shen"
+    ],
+    "link": "https://huggingface.co/papers/2609.17653",
+    "arxiv_id": "2609.17653",
+    "published": "2026-09-15",
+    "summary": "GUI agents execute long-horizon tasks on dynamic graphical user interfaces, where pop-ups, delayed loads, and relocated widgets routinely invalidate plans fixed before execution. Recent agent-skill frameworks encapsulate reusable procedural knowledge to mitigate this, yet existing skill designs are largely developed without targeting GUI execution dynamics and treat skills as static artifacts produced before deployment rather than living procedural knowledge that improves through it. We argue that what GUI agents need is not better static skills, but skills that can be revised from execution feedback at deployment time, without additional training. We propose EvoSkill-GUI, a training-free framework in which each skill is a structured multi-file package containing retrieval metadata, executable plans, backup localization, failure-recovery rules, accessibility utilities, and failure cases. EvoSkill-GUI operates through a \\emph{reflect-revise-reuse} loop: the executor performs instant in-rollout revisions, an isolated critic diagnoses failed trajectories under strict information isolation, and the executor edits specific skill files through a restricted tool interface. Across MobileWorld, AndroidWorld, and OSWorld, three mainstream GUI benchmarks spanning mobile and desktop platforms, EvoSkill-GUI consistently improves multiple base models without any training, with maximum gains of +16.2%, +6.0%, and +10.5% respectively, and evolved skill libraries continue to benefit related tasks rather than being rebuilt from scratch. Our code is available at https://github.com/ZJU-REAL/EvoSkill-GUI.",
+    "github": "https://github.com/ZJU-REAL/EvoSkill-GUI",
+    "review_saved": false
   }
 ]
