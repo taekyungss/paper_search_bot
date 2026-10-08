@@ -4222,5 +4222,80 @@
     "summary": "GUI agents require high-quality interaction trajectories to learn how software environments respond to actions, maintain state, and support multi-step workflows. However, the diversity of available trajectories is constrained by the applications, interface states, and workflows accessible in the underlying environments. Expanding this coverage requires deploying increasingly diverse and complex software, with specialized applications imposing additional installation, configuration, and runtime costs. We introduce AutoGUIWorld, a data generation framework that combines the visual priors of image generators with the task knowledge of a planner to synthesize GUI interaction trajectories without deploying or running the corresponding software environments. AutoGUIWorld samples initial GUI scenes from structured specifications of operating-system context, visual appearance, and interface state, and generates tasks conditioned on those scenes. A planner then specifies atomic actions and their intended visual consequences, while an image generator iteratively edits the current screenshot to produce subsequent observations. Action grounding and transition-level quality filtering yield 79,266 spatially annotated step-level training samples across Ubuntu, Windows, macOS, and Chrome. Fine-tuning Qwen3.5-35B-A3B on AutoGUIWorld trajectories improves the mean task score on OSWorld from 33.0% to 40.8% and the task success rate on ScienceBoard from 14.0% to 32.2%. These results show that generated trajectories improve GUI-agent performance on real desktop and scientific tasks.",
     "github": "https://github.com/ImYangC7/AutoGUIWorld",
     "review_saved": false
+  },
+  {
+    "message_id": "1557647979811446886",
+    "channel_id": "1537332348238962812",
+    "date": "2026-10-08",
+    "keyword": "VLM OCR",
+    "title": "Sorry Robot, Happy Human: Vision-Language Models Read Only One of Two Legible Typographic Layers",
+    "authors": [
+      "Mert İncidelen",
+      "Yamen Kashkash",
+      "Asya Berker",
+      "Murat Aydoğan"
+    ],
+    "link": "https://huggingface.co/papers/2609.31403",
+    "arxiv_id": "2609.31403",
+    "published": "2026-09-25",
+    "summary": "Vision-language models (VLMs), despite their success in optical character recognition (OCR) tasks, are vulnerable to typographic attacks and have a fragile structure for images with multiple text layers. In this study, the DecoyBench dataset was created using the Decoy Font method. The dataset consists of 300 images, each containing text with sharp contour lines superimposed on another text with soft shading. Six recent closed-source models from three different model families were evaluated using this dataset under two different prompting conditions (naive and guided) and at two different resolutions (512times512 and 64times64). A validation study showed that human participants could read both text layers with high accuracy. In contrast, the models, with most variants and both prompting methods, read the contour text with near-human accuracy at high resolution, but almost never fully extracted the shading text. At low resolution, the contour text could not be read by either the models or humans, while the shading text could be extracted with high accuracy. The findings indicate that the evaluated VLMs exhibit a consistent behavioral limitation when processing typographic structures containing multiple spatial frequency layers.",
+    "github": "https://github.com/yesdopepe/DecoyBench",
+    "review_saved": false
+  },
+  {
+    "message_id": "1557647981262544988",
+    "channel_id": "1537332348238962812",
+    "date": "2026-10-08",
+    "keyword": "GUI grounding",
+    "title": "DeskForge: Dense Supervision from Desktop Environments for Computer-Use Agents",
+    "authors": [
+      "A. Said Gurbuz",
+      "Ahmed Nassar",
+      "Sunghwan Hong",
+      "Marc Pollefeys",
+      "Peter W. J. Staar"
+    ],
+    "link": "https://huggingface.co/papers/2610.02320",
+    "arxiv_id": "2610.02320",
+    "published": "2026-10-01",
+    "summary": "Computer-use agents need to reliably ground action targets in complex desktop scenes, where multiple applications, overlapping windows, and visually similar controls compete for attention. Existing training data rarely pair such scenes with dense annotations or vary them in a controlled way. We introduce DeskForge, a controllable desktop environment that composes and explores real applications to generate large-scale supervision for computer-use agents. It varies application states, content, window layout, appearance, and resolution, and fuses screenshots, accessibility trees, and window geometry into dense element annotations while recording the outcome of each executed action. Using this environment, we construct DeskForge-1M, a corpus of 1.2M annotated desktop observations containing 159.7M element instances. We fine-tune four vision-language models on 200K grounding examples drawn from DeskForge-1M. All four improve across held-out desktop conditions and on all five external GUI grounding benchmarks; for Qwen3.5-4B, accuracy increases by 11.51 percentage points on ScreenSpot-Pro and 10.11 points on OSWorld-G. The gains also translate to long-horizon task completion: under a fixed planner, the fine-tuned action models solve more WebArena-Infinity and OpenApps tasks, with Qwen3.5-4B increasing from 31 to 50 of 119 tasks and from 3 to 15 of 100 tasks, respectively. These results show that controllable composition of real desktop environments provides a scalable source of supervision for improving both GUI grounding and long-horizon computer use. The framework code, the dataset, and the fine-tuned model are available from the project page: https://saidgurbuz.github.io/deskforge/",
+    "github": "https://github.com/Saidgurbuz/deskforge",
+    "review_saved": false
+  },
+  {
+    "message_id": "1557647982097203252",
+    "channel_id": "1537332348238962812",
+    "date": "2026-10-08",
+    "keyword": "GUI agent",
+    "title": "AutoGUIWorld: Image Generators as Visual World Models for GUI Agent",
+    "authors": [
+      "Cheng Yang",
+      "Yifan Wu",
+      "Yutao Huang",
+      "Zhaohua Zhang",
+      "Beiduo Chen",
+      "Muxi Chen",
+      "Chenchen Zhao",
+      "Hexuan Deng",
+      "Haolin Yang",
+      "Geyuan Zhu",
+      "Sa Zhu",
+      "Jianhuan Zhuo",
+      "Qiuyong Xiao",
+      "Jianhao Ruan",
+      "Yiran Peng",
+      "Jiayi Zhang",
+      "Tian Ye",
+      "Xinlei Yu",
+      "Tianwen Jiang",
+      "Jihong Zhang",
+      "Yuyu Luo"
+    ],
+    "link": "https://huggingface.co/papers/2610.01215",
+    "arxiv_id": "2610.01215",
+    "published": "2026-10-01",
+    "summary": "GUI agents require high-quality interaction trajectories to learn how software environments respond to actions, maintain state, and support multi-step workflows. However, the diversity of available trajectories is constrained by the applications, interface states, and workflows accessible in the underlying environments. Expanding this coverage requires deploying increasingly diverse and complex software, with specialized applications imposing additional installation, configuration, and runtime costs. We introduce AutoGUIWorld, a data generation framework that combines the visual priors of image generators with the task knowledge of a planner to synthesize GUI interaction trajectories without deploying or running the corresponding software environments. AutoGUIWorld samples initial GUI scenes from structured specifications of operating-system context, visual appearance, and interface state, and generates tasks conditioned on those scenes. A planner then specifies atomic actions and their intended visual consequences, while an image generator iteratively edits the current screenshot to produce subsequent observations. Action grounding and transition-level quality filtering yield 79,266 spatially annotated step-level training samples across Ubuntu, Windows, macOS, and Chrome. Fine-tuning Qwen3.5-35B-A3B on AutoGUIWorld trajectories improves the mean task score on OSWorld from 33.0% to 40.8% and the task success rate on ScienceBoard from 14.0% to 32.2%. These results show that generated trajectories improve GUI-agent performance on real desktop and scientific tasks.",
+    "github": "https://github.com/ImYangC7/AutoGUIWorld",
+    "review_saved": false
   }
 ]
