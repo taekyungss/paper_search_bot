@@ -4507,5 +4507,65 @@
     "summary": "A login screen that appears after a tap on Sign in is expected; the same screen after a tap on View order is an attack. For GUI agents, safety is therefore a property of the transition rather than of the screen, and a monitor that inspects only screens can be defeated by reusing a legitimate one. Judging a transition requires an expectation of what should have followed the action. Existing GUI world models provide one, but they output it as text, code, or images, so checking it against the observed screen requires a second model to judge the two. We argue that a world model meant for verification should instead predict in the space in which observations are encoded, and present LGWM, a decoder-free, action-conditioned world model that predicts the representation of the next screen directly, trained without semantic annotation on 1.85M real GUI transitions. Verification reduces to a vector comparison, and the same signal reveals whether a mismatch is harmful. We evaluate on RSWT-BENCH, a diagnostic where each credential screen appears under both a legitimate and a hijacked transition, so detectors that see only the screen are at chance by construction. The training-free score reaches 0.987 AUC at 17 ms per decision, on par with the strongest closed-source VLMs and about ten AUC points above generative GUI world models at over three orders of magnitude lower latency. The residual direction reaches 0.953 AUC at separating harmful from benign violations, where prompted VLMs are near chance. Further analyses show that the prediction is a usable future state rather than an anomaly score. World models have mostly served as simulators or planners; our results point to a third role, verification, for which predicting in representation space is the natural design.",
     "github": null,
     "review_saved": false
+  },
+  {
+    "message_id": "1559096493019897877",
+    "channel_id": "1537332348238962812",
+    "date": "2026-10-12",
+    "keyword": "VLM OCR",
+    "title": "Sorry Robot, Happy Human: Vision-Language Models Read Only One of Two Legible Typographic Layers",
+    "authors": [
+      "Mert İncidelen",
+      "Yamen Kashkash",
+      "Asya Berker",
+      "Murat Aydoğan"
+    ],
+    "link": "https://huggingface.co/papers/2609.31403",
+    "arxiv_id": "2609.31403",
+    "published": "2026-09-25",
+    "summary": "Vision-language models (VLMs), despite their success in optical character recognition (OCR) tasks, are vulnerable to typographic attacks and have a fragile structure for images with multiple text layers. In this study, the DecoyBench dataset was created using the Decoy Font method. The dataset consists of 300 images, each containing text with sharp contour lines superimposed on another text with soft shading. Six recent closed-source models from three different model families were evaluated using this dataset under two different prompting conditions (naive and guided) and at two different resolutions (512times512 and 64times64). A validation study showed that human participants could read both text layers with high accuracy. In contrast, the models, with most variants and both prompting methods, read the contour text with near-human accuracy at high resolution, but almost never fully extracted the shading text. At low resolution, the contour text could not be read by either the models or humans, while the shading text could be extracted with high accuracy. The findings indicate that the evaluated VLMs exhibit a consistent behavioral limitation when processing typographic structures containing multiple spatial frequency layers.",
+    "github": "https://github.com/yesdopepe/DecoyBench",
+    "review_saved": false
+  },
+  {
+    "message_id": "1559096495192408097",
+    "channel_id": "1537332348238962812",
+    "date": "2026-10-12",
+    "keyword": "GUI grounding",
+    "title": "DeskForge: Dense Supervision from Desktop Environments for Computer-Use Agents",
+    "authors": [
+      "A. Said Gurbuz",
+      "Ahmed Nassar",
+      "Sunghwan Hong",
+      "Marc Pollefeys",
+      "Peter W. J. Staar"
+    ],
+    "link": "https://huggingface.co/papers/2610.02320",
+    "arxiv_id": "2610.02320",
+    "published": "2026-10-01",
+    "summary": "Computer-use agents need to reliably ground action targets in complex desktop scenes, where multiple applications, overlapping windows, and visually similar controls compete for attention. Existing training data rarely pair such scenes with dense annotations or vary them in a controlled way. We introduce DeskForge, a controllable desktop environment that composes and explores real applications to generate large-scale supervision for computer-use agents. It varies application states, content, window layout, appearance, and resolution, and fuses screenshots, accessibility trees, and window geometry into dense element annotations while recording the outcome of each executed action. Using this environment, we construct DeskForge-1M, a corpus of 1.2M annotated desktop observations containing 159.7M element instances. We fine-tune four vision-language models on 200K grounding examples drawn from DeskForge-1M. All four improve across held-out desktop conditions and on all five external GUI grounding benchmarks; for Qwen3.5-4B, accuracy increases by 11.51 percentage points on ScreenSpot-Pro and 10.11 points on OSWorld-G. The gains also translate to long-horizon task completion: under a fixed planner, the fine-tuned action models solve more WebArena-Infinity and OpenApps tasks, with Qwen3.5-4B increasing from 31 to 50 of 119 tasks and from 3 to 15 of 100 tasks, respectively. These results show that controllable composition of real desktop environments provides a scalable source of supervision for improving both GUI grounding and long-horizon computer use. The framework code, the dataset, and the fine-tuned model are available from the project page: https://saidgurbuz.github.io/deskforge/",
+    "github": "https://github.com/Saidgurbuz/deskforge",
+    "review_saved": false
+  },
+  {
+    "message_id": "1559096496593571951",
+    "channel_id": "1537332348238962812",
+    "date": "2026-10-12",
+    "keyword": "GUI agent",
+    "title": "Right Screen, Wrong Transition: World Models as Verifiers for GUI Agents",
+    "authors": [
+      "Jiaming Zhang",
+      "Xuan Wang",
+      "Fuyao Zhang",
+      "Yang Cao",
+      "Lingjuan Lyu",
+      "Wei Yang Bryan Lim"
+    ],
+    "link": "https://huggingface.co/papers/2610.11942",
+    "arxiv_id": "2610.11942",
+    "published": "2026-10-08",
+    "summary": "A login screen that appears after a tap on Sign in is expected; the same screen after a tap on View order is an attack. For GUI agents, safety is therefore a property of the transition rather than of the screen, and a monitor that inspects only screens can be defeated by reusing a legitimate one. Judging a transition requires an expectation of what should have followed the action. Existing GUI world models provide one, but they output it as text, code, or images, so checking it against the observed screen requires a second model to judge the two. We argue that a world model meant for verification should instead predict in the space in which observations are encoded, and present LGWM, a decoder-free, action-conditioned world model that predicts the representation of the next screen directly, trained without semantic annotation on 1.85M real GUI transitions. Verification reduces to a vector comparison, and the same signal reveals whether a mismatch is harmful. We evaluate on RSWT-BENCH, a diagnostic where each credential screen appears under both a legitimate and a hijacked transition, so detectors that see only the screen are at chance by construction. The training-free score reaches 0.987 AUC at 17 ms per decision, on par with the strongest closed-source VLMs and about ten AUC points above generative GUI world models at over three orders of magnitude lower latency. The residual direction reaches 0.953 AUC at separating harmful from benign violations, where prompted VLMs are near chance. Further analyses show that the prediction is a usable future state rather than an anomaly score. World models have mostly served as simulators or planners; our results point to a third role, verification, for which predicting in representation space is the natural design.",
+    "github": null,
+    "review_saved": false
   }
 ]
