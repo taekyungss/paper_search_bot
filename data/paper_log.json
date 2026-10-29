@@ -5608,5 +5608,71 @@
     "summary": "A login screen that appears after a tap on Sign in is expected; the same screen after a tap on View order is an attack. For GUI agents, safety is therefore a property of the transition rather than of the screen, and a monitor that inspects only screens can be defeated by reusing a legitimate one. Judging a transition requires an expectation of what should have followed the action. Existing GUI world models provide one, but they output it as text, code, or images, so checking it against the observed screen requires a second model to judge the two. We argue that a world model meant for verification should instead predict in the space in which observations are encoded, and present LGWM, a decoder-free, action-conditioned world model that predicts the representation of the next screen directly, trained without semantic annotation on 1.85M real GUI transitions. Verification reduces to a vector comparison, and the same signal reveals whether a mismatch is harmful. We evaluate on RSWT-BENCH, a diagnostic where each credential screen appears under both a legitimate and a hijacked transition, so detectors that see only the screen are at chance by construction. The training-free score reaches 0.987 AUC at 17 ms per decision, on par with the strongest closed-source VLMs and about ten AUC points above generative GUI world models at over three orders of magnitude lower latency. The residual direction reaches 0.953 AUC at separating harmful from benign violations, where prompted VLMs are near chance. Further analyses show that the prediction is a usable future state rather than an anomaly score. World models have mostly served as simulators or planners; our results point to a third role, verification, for which predicting in representation space is the natural design.",
     "github": "https://github.com/jiamingzhang94/lgwm",
     "review_saved": false
+  },
+  {
+    "message_id": "1565254485255782531",
+    "channel_id": "1537332348238962812",
+    "date": "2026-10-29",
+    "keyword": "VLM OCR",
+    "title": "TextVerifier: Seeing Beyond Recognition to Verify Chinese Text Rendering",
+    "authors": [
+      "Yiyang Chen",
+      "Guo-Hua Wang",
+      "Yaoli Liu",
+      "Qing-Guo Chen",
+      "Zhao Xu",
+      "Weihua Luo",
+      "Xiujun Ma"
+    ],
+    "link": "https://huggingface.co/papers/2610.19551",
+    "arxiv_id": "2610.19551",
+    "published": "2026-10-14",
+    "summary": "Text-to-image models increasingly generate readable Chinese text that still contains local rendering defects, such as a character with an extra or missing stroke or a malformed component. Such errors are invisible to OCR and vision-language models, which are trained for recognition and are therefore invariant to the very structural deviations that define a rendering error. We formalize text rendering verification as a target-conditioned problem: given a target character and an image crop, decide whether the crop is a correct rendering of that character. Our verifier TEXTVERIFIER feeds the text tower a character's Ideographic Description Sequence (IDS) rather than a single-character symbol, and is trained on 12.7M crop-IDS pairs plus label-free \"same-character, different-quality\" hard pairs sampled from the training trajectory of a text-region inpainting model. To evaluate this ability we build TEXTRENDERBENCH-ZH, the first per-character benchmark for generated Chinese text, annotating position, identity, and correctness for 7,358 characters. TEXTVERIFIER reaches an F1 of 0.844, far above OCR confidence (0.526), a general VLM (0.329), and TextPecker (0.590). Used as a per-character reward for Flow-GRPO post-training, it further reduces rendering errors, showing that its score can both detect and correct errors.",
+    "github": "https://github.com/ATH-MaaS/TextVerifier",
+    "review_saved": false
+  },
+  {
+    "message_id": "1565254486740570153",
+    "channel_id": "1537332348238962812",
+    "date": "2026-10-29",
+    "keyword": "GUI grounding",
+    "title": "GroundGUI: GUI Grounding by High-Quality Data and Distillation-to-Reinforcement Learning",
+    "authors": [
+      "Qingsong Xie",
+      "Jiahao Tian",
+      "Jiacheng Tang",
+      "Zhifeng Li",
+      "Madalina Ciobanu",
+      "Navan Preet Singh",
+      "Qingqing Mao",
+      "Ritankar Das"
+    ],
+    "link": "https://huggingface.co/papers/2610.19100",
+    "arxiv_id": "2610.19100",
+    "published": "2026-10-13",
+    "summary": "Constructing robust GUI agents relies on multimodal visual grounding: the ability to precisely map natural language intents to actionable on-screen components. Despite abundant desktop, web, and mobile benchmarks, high-fidelity resources tailored for diverse environments are surprisingly scarce. To bridge this gap, we introduce the Screen Referring Grounding Dataset (ScreenRef), a comprehensive GUI grounding dataset consisting of GUI screenshots paired with natural language referring expressions and box or point annotations. Spanning desktop, web, and mobile domains, ScreenRef comprises 586K screenshots and over 633K referring expression instances, covering tasks such as text recognition, visual matching, spatial understanding, and refusal scenarios. To boost the model's grounding performance, we propose the Distillation-to-Reinforcement Learning (D2RL) method to address the limited generalization of supervised fine-tuning and the sparse reward problem in reinforcement learning. Utilizing ScreenRef, we train Qwen3-VL-8B-Instruct via sequential SFT and D2RL training, yielding GroundGUI-8B. GroundGUI-8B achieves 95.2% on ScreenSpot-V2, 63.9% on ScreenSpot-Pro, 65.4% on OSWorld-G, 86.8% on MMBench-GUI L2, and 38.3% on UI-Vision. Among 8B-scale models, it produces substantial gains over models trained on open-source datasets, with performance comparable or even superior to models trained on closed-source data. Code, models, and datasets are available at https://github.com/PrentisAI/GroundGUI.",
+    "github": "https://github.com/PrentisAI/GroundGUI",
+    "review_saved": false
+  },
+  {
+    "message_id": "1565254487629766717",
+    "channel_id": "1537332348238962812",
+    "date": "2026-10-29",
+    "keyword": "GUI agent",
+    "title": "Right Screen, Wrong Transition: World Models as Verifiers for GUI Agents",
+    "authors": [
+      "Jiaming Zhang",
+      "Xuan Wang",
+      "Fuyao Zhang",
+      "Yang Cao",
+      "Lingjuan Lyu",
+      "Wei Yang Bryan Lim"
+    ],
+    "link": "https://huggingface.co/papers/2610.11942",
+    "arxiv_id": "2610.11942",
+    "published": "2026-10-08",
+    "summary": "A login screen that appears after a tap on Sign in is expected; the same screen after a tap on View order is an attack. For GUI agents, safety is therefore a property of the transition rather than of the screen, and a monitor that inspects only screens can be defeated by reusing a legitimate one. Judging a transition requires an expectation of what should have followed the action. Existing GUI world models provide one, but they output it as text, code, or images, so checking it against the observed screen requires a second model to judge the two. We argue that a world model meant for verification should instead predict in the space in which observations are encoded, and present LGWM, a decoder-free, action-conditioned world model that predicts the representation of the next screen directly, trained without semantic annotation on 1.85M real GUI transitions. Verification reduces to a vector comparison, and the same signal reveals whether a mismatch is harmful. We evaluate on RSWT-BENCH, a diagnostic where each credential screen appears under both a legitimate and a hijacked transition, so detectors that see only the screen are at chance by construction. The training-free score reaches 0.987 AUC at 17 ms per decision, on par with the strongest closed-source VLMs and about ten AUC points above generative GUI world models at over three orders of magnitude lower latency. The residual direction reaches 0.953 AUC at separating harmful from benign violations, where prompted VLMs are near chance. Further analyses show that the prediction is a usable future state rather than an anomaly score. World models have mostly served as simulators or planners; our results point to a third role, verification, for which predicting in representation space is the natural design.",
+    "github": "https://github.com/jiamingzhang94/lgwm",
+    "review_saved": false
   }
 ]
