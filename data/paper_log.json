@@ -5734,5 +5734,67 @@
     "summary": "A login screen that appears after a tap on Sign in is expected; the same screen after a tap on View order is an attack. For GUI agents, safety is therefore a property of the transition rather than of the screen, and a monitor that inspects only screens can be defeated by reusing a legitimate one. Judging a transition requires an expectation of what should have followed the action. Existing GUI world models provide one, but they output it as text, code, or images, so checking it against the observed screen requires a second model to judge the two. We argue that a world model meant for verification should instead predict in the space in which observations are encoded, and present LGWM, a decoder-free, action-conditioned world model that predicts the representation of the next screen directly, trained without semantic annotation on 1.85M real GUI transitions. Verification reduces to a vector comparison, and the same signal reveals whether a mismatch is harmful. We evaluate on RSWT-BENCH, a diagnostic where each credential screen appears under both a legitimate and a hijacked transition, so detectors that see only the screen are at chance by construction. The training-free score reaches 0.987 AUC at 17 ms per decision, on par with the strongest closed-source VLMs and about ten AUC points above generative GUI world models at over three orders of magnitude lower latency. The residual direction reaches 0.953 AUC at separating harmful from benign violations, where prompted VLMs are near chance. Further analyses show that the prediction is a usable future state rather than an anomaly score. World models have mostly served as simulators or planners; our results point to a third role, verification, for which predicting in representation space is the natural design.",
     "github": "https://github.com/jiamingzhang94/lgwm",
     "review_saved": false
+  },
+  {
+    "message_id": "1565977153235853394",
+    "channel_id": "1537332348238962812",
+    "date": "2026-10-31",
+    "keyword": "VLM OCR",
+    "title": "TextVerifier: Seeing Beyond Recognition to Verify Chinese Text Rendering",
+    "authors": [
+      "Yiyang Chen",
+      "Guo-Hua Wang",
+      "Yaoli Liu",
+      "Qing-Guo Chen",
+      "Zhao Xu",
+      "Weihua Luo",
+      "Xiujun Ma"
+    ],
+    "link": "https://huggingface.co/papers/2610.19551",
+    "arxiv_id": "2610.19551",
+    "published": "2026-10-14",
+    "summary": "Text-to-image models increasingly generate readable Chinese text that still contains local rendering defects, such as a character with an extra or missing stroke or a malformed component. Such errors are invisible to OCR and vision-language models, which are trained for recognition and are therefore invariant to the very structural deviations that define a rendering error. We formalize text rendering verification as a target-conditioned problem: given a target character and an image crop, decide whether the crop is a correct rendering of that character. Our verifier TEXTVERIFIER feeds the text tower a character's Ideographic Description Sequence (IDS) rather than a single-character symbol, and is trained on 12.7M crop-IDS pairs plus label-free \"same-character, different-quality\" hard pairs sampled from the training trajectory of a text-region inpainting model. To evaluate this ability we build TEXTRENDERBENCH-ZH, the first per-character benchmark for generated Chinese text, annotating position, identity, and correctness for 7,358 characters. TEXTVERIFIER reaches an F1 of 0.844, far above OCR confidence (0.526), a general VLM (0.329), and TextPecker (0.590). Used as a per-character reward for Flow-GRPO post-training, it further reduces rendering errors, showing that its score can both detect and correct errors.",
+    "github": "https://github.com/ATH-MaaS/TextVerifier",
+    "review_saved": false
+  },
+  {
+    "message_id": "1565977154875957301",
+    "channel_id": "1537332348238962812",
+    "date": "2026-10-31",
+    "keyword": "GUI grounding",
+    "title": "PreView: Enhancing GUI Grounding with Preprocessed Views and Cues",
+    "authors": [
+      "Wenjun Hou",
+      "Kaishuai Xu"
+    ],
+    "link": "https://huggingface.co/papers/2610.33645",
+    "arxiv_id": "2610.33645",
+    "published": "2026-10-24",
+    "summary": "GUI grounding requires locating small controls in cluttered screenshots and identifying which control a natural-language instruction refers to. Cropping and enlargement can expose local detail, but the resulting image may still leave ambiguity about the intended target. We propose PreView, an auxiliary preprocessor that improves the inputs to an existing grounding model without further training that model. PreView prepares two complementary types of input features: task-relevant views for localization and candidate-specific cues for target understanding. A trained lightweight auxiliary model predicts and refines a center, crops the screenshot into a local view, and enlarges that view for zoomed-in grounding. It also prepares a visual cue (i.e., a red-circle marker with a location hint) and a textual cue describing the candidate's identity or function. The frozen grounding model uses the prepared inputs to predict the final click. Across five benchmarks, PreView improves the average grounding accuracy of Qwen3-VL-2B, OS-Atlas-4B, and Qwen3-VL-4B without further training these grounding models. Extensive analyses examine the contributions of views and cues, center refinement, and visual input budgets.",
+    "github": null,
+    "review_saved": false
+  },
+  {
+    "message_id": "1565977156004089858",
+    "channel_id": "1537332348238962812",
+    "date": "2026-10-31",
+    "keyword": "GUI agent",
+    "title": "GUI-JEPA: Candidate-Conditioned JEPA Latents as a Fast Action Policy for Mobile GUI Agents",
+    "authors": [
+      "Bingchao Wang",
+      "Yongcheng Jing",
+      "Shunyu Liu",
+      "Chengyu Wang",
+      "Jun Huang",
+      "Jie Yang",
+      "Wei Liu",
+      "Dacheng Tao"
+    ],
+    "link": "https://huggingface.co/papers/2610.36877",
+    "arxiv_id": "2610.36877",
+    "published": "2026-10-27",
+    "summary": "Mobile GUI agents are typically fine-tuned 7B-scale vision-language models (VLMs) that generate each action as text. However, these VLMs decode every action token by token, and even agents that score candidate actions keep a large language model or VLM in the loop, making them slow and memory-hungry. To address these issues, we propose GUI-JEPA, to our knowledge the first decoder-free GUI agent policy built on a Joint-Embedding Predictive Architecture (JEPA), which selects actions in the latent space of a JEPA encoder pretrained on unlabelled GUI screenshots. Its action- and region-conditioned latent predictor turns the screen latent into one latent per candidate action, letting lightweight heads score all candidates against the instruction in a single batched pass, without decoding a token. We further show that the scorer relies on this latent pathway and that the predictor is trained for the decision itself: a randomly initialised predictor does just as well as one pretrained on screen dynamics. On AndroidControl, GUI-JEPA is 2.8-4.0x faster on the same GPU than a Qwen2.5-VL-7B agent we fine-tune with the same inputs, while reaching 86-92% of its in-distribution accuracy with 6% of its parameters. Code is available at https://github.com/bcwang-sjtu/GUI-JEPA",
+    "github": null,
+    "review_saved": false
   }
 ]
