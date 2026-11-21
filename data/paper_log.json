@@ -6493,5 +6493,71 @@
     "summary": "GUI agents are increasingly evaluated by whether they complete web tasks, but surface success can hide a critical failure: the final answer may not be supported by evidence observed during navigation. We introduce EVIDENT, an evidence-driven benchmark for evaluating whether GUI agents ground their decisions in observable web evidence. EVIDENT contains 220 real-world English and Korean tasks spanning semantic grounding, contextual inference, and visual grounding, each paired with human-curated evidence metadata specifying what must be verified. We further separate surface task completion from evidence-grounded success using three metrics: TSR, ESR, and GSR, which respectively measure outcome success, required evidence observation, and claim-level evidence support. Experiments on commercial and open-source GUI agents reveal substantial gaps between surface success and evidence-grounded success, especially in contextual and visual tasks. These results show that current evaluations can overestimate agent reliability and highlight the need to assess not only whether agents answer, but whether they verify.",
     "github": "https://github.com/yerinNam/EVIDENT",
     "review_saved": false
+  },
+  {
+    "message_id": "1573607912935268353",
+    "channel_id": "1537332348238962812",
+    "date": "2026-11-21",
+    "keyword": "VLM OCR",
+    "title": "OCRia-1 Technical Report",
+    "authors": [
+      "Aman Rangapur",
+      "Antonio Jimeno Yepes",
+      "Daniel Bustamante",
+      "Nutchapol Dendumrongsup",
+      "Sebastián G. Acosta",
+      "Pierre-Loïc Doulcet",
+      "Simon Suo"
+    ],
+    "link": "https://huggingface.co/papers/2611.00092",
+    "arxiv_id": "2611.00092",
+    "published": "2026-11-09",
+    "summary": "We introduce OCRia-1, a 4B vision-language model (VLM) for document parsing that excels at preserving table structure, extracting chart data and retaining text formatting. OCRia-1 handles content that has traditionally been challenging in document parsing: merged cells and spanning headers, tables with thousands of cells, chart data, and meaningful text formatting such as bold, italics, subscripts and superscripts, preserving details needed for business-critical document analysis. At the time of this report, it achieves the highest scores on tables, charts and text formatting among the systems evaluated, including a 35B model and Mistral OCR 4.1. Its mean ParseBench score over the four dimensions we evaluate is 0.87, against 0.75 for the next-best system.   We emphasize data quality and reward design in training OCRia-1. Synthetic pages provide exact ground truth for long tables and rich formatting, while real pages are transcribed using a pipeline grounded in the PDF text layer. We attribute OCRia-1's performance primarily to careful data curation that prioritizes quality and diversity over quantity. Dimension-specific rewards evaluate table reconstruction, chart-data extraction and text-formatting fidelity. We train the model on the curated data using supervised fine-tuning (SFT), then refine it through reinforcement learning with verifiable rewards (RLVR).   To our knowledge, OCRia-1 is the fastest published document-parsing VLM in its class, decoding at about 4,700 tokens per second with a single request on one B200 GPU, about nine times faster than the base model on stock vLLM. This is achieved through a block-diffusion speculator, quantization and custom kernels.",
+    "github": null,
+    "review_saved": false
+  },
+  {
+    "message_id": "1573607914101411971",
+    "channel_id": "1537332348238962812",
+    "date": "2026-11-21",
+    "keyword": "GUI grounding",
+    "title": "EVIDENT: Evaluating Evidence Grounding in GUI Agents",
+    "authors": [
+      "Yerin Nam",
+      "Minkyung Cho",
+      "MinKyu Kim",
+      "SeungWoo Song",
+      "Hangyeol Yoo",
+      "Jihyo Kim",
+      "KyungTae Lim"
+    ],
+    "link": "https://huggingface.co/papers/2611.20488",
+    "arxiv_id": "2611.20488",
+    "published": "2026-11-16",
+    "summary": "GUI agents are increasingly evaluated by whether they complete web tasks, but surface success can hide a critical failure: the final answer may not be supported by evidence observed during navigation. We introduce EVIDENT, an evidence-driven benchmark for evaluating whether GUI agents ground their decisions in observable web evidence. EVIDENT contains 220 real-world English and Korean tasks spanning semantic grounding, contextual inference, and visual grounding, each paired with human-curated evidence metadata specifying what must be verified. We further separate surface task completion from evidence-grounded success using three metrics: TSR, ESR, and GSR, which respectively measure outcome success, required evidence observation, and claim-level evidence support. Experiments on commercial and open-source GUI agents reveal substantial gaps between surface success and evidence-grounded success, especially in contextual and visual tasks. These results show that current evaluations can overestimate agent reliability and highlight the need to assess not only whether agents answer, but whether they verify.",
+    "github": "https://github.com/yerinNam/EVIDENT",
+    "review_saved": false
+  },
+  {
+    "message_id": "1573607914722304023",
+    "channel_id": "1537332348238962812",
+    "date": "2026-11-21",
+    "keyword": "GUI agent",
+    "title": "EVIDENT: Evaluating Evidence Grounding in GUI Agents",
+    "authors": [
+      "Yerin Nam",
+      "Minkyung Cho",
+      "MinKyu Kim",
+      "SeungWoo Song",
+      "Hangyeol Yoo",
+      "Jihyo Kim",
+      "KyungTae Lim"
+    ],
+    "link": "https://huggingface.co/papers/2611.20488",
+    "arxiv_id": "2611.20488",
+    "published": "2026-11-16",
+    "summary": "GUI agents are increasingly evaluated by whether they complete web tasks, but surface success can hide a critical failure: the final answer may not be supported by evidence observed during navigation. We introduce EVIDENT, an evidence-driven benchmark for evaluating whether GUI agents ground their decisions in observable web evidence. EVIDENT contains 220 real-world English and Korean tasks spanning semantic grounding, contextual inference, and visual grounding, each paired with human-curated evidence metadata specifying what must be verified. We further separate surface task completion from evidence-grounded success using three metrics: TSR, ESR, and GSR, which respectively measure outcome success, required evidence observation, and claim-level evidence support. Experiments on commercial and open-source GUI agents reveal substantial gaps between surface success and evidence-grounded success, especially in contextual and visual tasks. These results show that current evaluations can overestimate agent reliability and highlight the need to assess not only whether agents answer, but whether they verify.",
+    "github": "https://github.com/yerinNam/EVIDENT",
+    "review_saved": false
   }
 ]
